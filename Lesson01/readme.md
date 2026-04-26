@@ -23,3 +23,8 @@
 
 - 在 Godot 脚本中打印 `_process(delta)` 调用，思考引擎的主循环被隐藏在哪里。对比你手写的 `while running`。
 
+
+## 效果图
+
+![效果图](lesson01.png)
+
