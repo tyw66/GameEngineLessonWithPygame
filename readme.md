@@ -21,7 +21,7 @@
 阶段目标：彻底搞懂游戏程序最底层运行逻辑，掌握主循环、时间系统、静态渲染、输入交互四大基础能力，建立「循环驱动画面、时间驱动逻辑、输入控制交互」的核心认知。
 
 - [Lesson01 - 最小游戏主循环实现（一切的起点）](./Lesson01/readme.md)
-- [Lesson02 - 时间系统与 delta time + 固定时间步长](./Lesson02/readme.md)
+- [Lesson02 - 时间系统与两种频率](./Lesson02/readme.md)
 - [Lesson03 - 静态渲染与 画布基础](./Lesson03/readme.md)
 - [Lesson04 - 输入系统与交互判定底层](./Lesson04/readme.md)
 - [Milestone 01 - 综合案例：极简桌面交互画板](./Milestone01/readme.md)
