@@ -32,7 +32,7 @@
 
 - [Lesson05 - 精灵系统与游戏实体管理](./Lesson05/readme.md)
 - [Lesson06 - 场景图与节点变换](./Lesson06/readme.md)
-- [Lesson07 - 有限状态机 FSM](./Lesson07/readme.md) 
+- [Lesson07 - 有限状态机 FSM](./Lesson07/readme.md)
 - [Lesson08 - 资源管理与静态配置系统](./Lesson08/readme.md)
 - [Lesson09 - 存档系统与数据持久化](./Lesson09/readme.md)
 - [Lesson10 - 碰撞检测与简易物理系统](./Lesson10/readme.md)
@@ -50,8 +50,9 @@
 - [Lesson16 - 性能优化基础](./Lesson16/readme.md)
 - [Milestone 03 - 综合案例：分层架构版模拟经营 Demo](./Milestone03/readme.md)
 
-
 ## 学习建议
 
 - 聚焦核心闭环：每课结束完成「手写底层原理 + Godot 对应功能验证」
-- 严控项目边界：单点轻量化，案例适度扩展；
+- 严控项目边界：单点轻量化，案例适度扩展
+- 结合AI更高效：本课程的内容可以作为知识的切入点，推荐结合大模型进行学习与实践
+
