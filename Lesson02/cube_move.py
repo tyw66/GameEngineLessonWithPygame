@@ -7,11 +7,23 @@ import pygame
 import sys
 
 def handle_input():
+    global fps
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+            elif event.key == pygame.K_UP:
+                fps += 10
+                if fps > 120:
+                    fps = 120
+            elif event.key == pygame.K_DOWN:
+                fps -= 10
+                if fps < 10:
+                    fps = 10
 
 def update(delta_time):
     global cube_position, cube_velocity
@@ -26,25 +38,24 @@ def update(delta_time):
 def render(delta_time):
     # 渲染场景
     screen.fill((116, 161, 195))
-    # 渲染FPS
-    fps_text = font.render(f"FPS: {fps:.2f}", True, (255, 255, 255))
-    screen.blit(fps_text, (10, 50)) 
-    # 渲染动态时间
-    delta_time_text = font.render(f"Delta Time: {delta_time:.4f}", True, (255, 255, 255))
-    screen.blit(delta_time_text, (10, 100)) 
+    # 渲染标题
+    title_text = font.render(f"Press up/down arrow to change FPS", True, (255, 255, 255))
+    screen.blit(title_text, (10, 30)) 
+    # 渲染FPS、动态时间
+    fps_text = font.render(f"Current FPS: {fps:.2f}    Delta Time: {delta_time:.4f}", True, (255, 255, 255))
+    screen.blit(fps_text, (10, 60)) 
     # 绘制矩形
     pygame.draw.rect(screen, CUBE_COLOR, (cube_position[0], cube_position[1], 100, 100))   
     # 更新显示
     pygame.display.flip()
 
-
 if __name__ == "__main__":  
     # 初始化游戏参数    
     WINDOW_SIZE = (800, 600)                # 窗口大小  
-    CUBE_COLOR = (255, 255, 255)             # 立方体颜色        
+    CUBE_COLOR = (255, 255, 255)            # 立方体颜色        
     cube_position = [10, 240]               # 立方体初始位置
     cube_velocity = [200, 0]                # 立方体初始速度  
-    fps = 60                                # 渲染帧率 <-----修改，观察效果
+    fps = 60                                # 渲染帧率
 
     # 初始化 Pygame
     pygame.init()

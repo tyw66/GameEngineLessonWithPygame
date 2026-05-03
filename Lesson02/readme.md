@@ -58,3 +58,6 @@
 - 如果一个游戏帧率突然掉到 10 FPS，用 delta 移动的子弹和用固定时间步长移动的子弹，哪个更容易穿过薄墙？为什么？
 - 查阅资料了解 Pygame 的 `pygame.time.get_ticks()` 与 `time.time()` 在计时上的区别（毫秒级精度 vs 秒级浮点）。
 
+## 效果图
+
+![效果图](lesson02_cube_move.png)
