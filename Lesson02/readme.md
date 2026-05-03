@@ -60,4 +60,8 @@
 
 ## 效果图
 
-![效果图](lesson02_cube_move.png)
+《方块移动》
+![效果图](cube_move.png)
+
+《弹跳球模拟》
+![效果图](bouncing_ball.png)

@@ -26,3 +26,5 @@
 - 在 Godot 中创建两个 `Sprite2D`，调整 `z\_index`，观察遮挡。对照 Pygame 的 blit 顺序。
 - 类比 Godot 的 `stretch` 模式与 `Viewport` 的 `size。` 设置 `Viewport` 的拉伸模式，对比你的实现。
 
+## 效果图
+
