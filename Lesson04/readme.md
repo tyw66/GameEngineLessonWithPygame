@@ -20,5 +20,5 @@
 
 ## 🔁 映射引擎原理
 
-- 在 Godot 中用 `\_input\(event\)` 处理点击，用 `Input\.is\_action\_pressed\(\)` 处理长按。对比两种方式的适用场景。
+- 在 Godot 中用 `_input(event)` 处理点击，用 `Input.is_action_pressed()` 处理长按。对比两种方式的适用场景。
 

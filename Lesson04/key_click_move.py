@@ -1,6 +1,6 @@
 '''
 学习输入系统——物体的点击移动
-靠输入事件处理，处理键盘/鼠标按下事件，使方块进行一次移动，加入摩擦力
+靠输入事件处理，处理键盘/鼠标按下事件，使方块进行1次移动，并加入摩擦力
 '''
 import pygame
 
@@ -11,11 +11,10 @@ CUBE_WIDTH = 50             # 方块宽度
 CUBE_HEIGHT = 50            # 方块高度
 
 def handle_input():
-    global velocity
+    global running,velocity, pos_x, pos_y
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
+            running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 velocity[0] -= 4
@@ -26,11 +25,14 @@ def handle_input():
             elif event.key == pygame.K_DOWN:
                 velocity[1] += 4    
             elif event.key == pygame.K_ESCAPE:
-                pygame.quit()
-                exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            #TODO 补充靠鼠标移动的代码
-            pass
+                running = False
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == pygame.BUTTON_LEFT:
+            dir = pygame.math.Vector2(
+                pygame.mouse.get_pos()[0] - pos_x,
+                pygame.mouse.get_pos()[1] - pos_y,
+            ).normalize()
+            velocity[0]  += 4 * dir[0]
+            velocity[1]  += 4 * dir[1]
 
 
 def update():
@@ -63,12 +65,16 @@ def update():
 def render():
     # 渲染场景
     screen.fill((153, 204, 255))
+    # 渲染标题
+    txt = f"Click mouse button or keybord to move"
+    title_text = font.render(txt, True, (255, 255, 255))
+    screen.blit(title_text, (10, 20)) 
     # 绘制方块
     pygame.draw.rect(screen, (210, 128, 45), (pos_x, pos_y, CUBE_WIDTH, CUBE_HEIGHT))
     # 显示帧率
     fps = clock.get_fps()
     fps_text = font.render(f"FPS: {int(fps)}", True, (255, 255, 255))
-    screen.blit(fps_text, (10, 10))
+    screen.blit(fps_text, (10, 50))
     # 更新显示
     pygame.display.flip()
 
@@ -77,15 +83,15 @@ if __name__ == "__main__":
     pos_x = WINDOW_SIZE[0] // 2 - CUBE_WIDTH // 2
     pos_y = WINDOW_SIZE[1] // 2 - CUBE_HEIGHT // 2
     velocity = [0, 0]
-
     # 初始化 Pygame
     pygame.init()
     screen = pygame.display.set_mode(WINDOW_SIZE)
-    pygame.display.set_caption("Lesson01 - Pygame Game Loop")
+    pygame.display.set_caption("Lesson04 - Click Move It!")
     clock = pygame.time.Clock()
     font = pygame.font.Font(None, 36)
     # 游戏主循环
-    while True:
+    running = True
+    while running:
         # 处理输入
         handle_input()
         # 更新场景状态
